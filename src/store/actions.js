@@ -14,11 +14,12 @@ import {
 } from '../api'
 
 export default {
-  async getHomeData ({commit}) {
+  async getHomeData ({commit}, callback) {
     const result = await reqHomeData()
     if (result.code === 0) {
       const homeData = result.data
       commit(RECEIVE_HOMEDATA, {homeData})
+      callback && callback()
     }
   },
   async getTopicData ({commit}) {

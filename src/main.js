@@ -9,11 +9,13 @@ import store from './store'
 import loading from './assets/images/loading.gif'
 import 'swiper/dist/css/swiper.css'
 import './mock/mockServer' // 加载mockServer
+import VueCountdown from '@xkeshi/vue-countdown'
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueLazyload, {
   loading
 })
+Vue.component('countdown', VueCountdown)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -8164,5 +8164,52 @@
       "title": "行李箱太好用，天天盼出行",
       "topicId": 2364
     }
+  ],
+  "countDown": [
+    {
+      "limitedFlag": 203,
+      "listPicUrl": "http://yanxuan.nosdn.127.net/1059f517cd4a529fcc3f9299f5173bef.png",
+      "name": "天然宽篾头层青碳化竹凉席",
+      "newItemFlag": false,
+      "pieceNum": 0,
+      "pieceUnitDesc": "件",
+      "primaryPicUrl": "http://yanxuan.nosdn.127.net/1059f517cd4a529fcc3f9299f5173bef.png",
+      "primarySkuPreSellPrice": 0,
+      "primarySkuPreSellStatus": 0,
+      "productPlace": "",
+      "promTag": "限时购",
+      "retailPrice": 209.25,
+      "scenePicUrl": "",
+      "sellVolume": 6539,
+      "simpleDesc": "宽细夹排，升级爽滑凉感",
+      "status": 2,
+      "tagId": 0,
+      "tagName": "",
+      "unitPrice": 0
+    },
+    {
+      "limitedFlag": 203,
+      "listPicUrl": "http://yanxuan.nosdn.127.net/96dbf7cb44b1c504589b6e42c6e5e53a.png",
+      "name": "即食燕窝 70克*6瓶 30%",
+      "newItemFlag": false,
+      "pieceNum": 0,
+      "pieceUnitDesc": "件",
+      "primaryPicUrl": "http://yanxuan.nosdn.127.net/1985e340c80c8b8b92555368faadbd89.png",
+      "primarySkuPreSellPrice": 0,
+      "primarySkuPreSellStatus": 0,
+      "productPlace": "",
+      "promTag": "限时购",
+      "retailPrice": 218,
+      "scenePicUrl": "http://yanxuan.nosdn.127.net/1985e340c80c8b8b92555368faadbd89.png",
+      "sellVolume": 7058,
+      "simpleDesc": "进口燕窝，东方珍品",
+      "status": 2,
+      "tagId": 0,
+      "tagName": "",
+      "unitPrice": 0
+    },
+    {
+      
+    }
   ]
 }

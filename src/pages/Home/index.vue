@@ -71,28 +71,32 @@
       </div>
       <GoodsList :data="homeData.popularItemList"></GoodsList>
     </section>
-    <div class="countDown">
-      <a href="javascript:;">
-        <div class="itemLeft">
-          <div class="title">严选限时购</div>
-          <div class="countNum">
-            <span class="time">03</span>
-            <span class="colon">:</span>
-            <span class="time">56</span>
-            <span class="colon">:</span>
-            <span class="time">01</span>
-          </div>
-          <div class="nextTitle">下一场 22:00  开始</div>
+    <countdown :time="resetTime * 1000"  v-bind:auto-start="false" ref="countdown">
+      <template slot-scope="props">
+        <div class="countDown">
+          <a href="javascript:;">
+            <div class="itemLeft">
+              <div class="title">严选限时购</div>
+              <div class="countNum">
+                <span class="time">{{ props.hours }}</span>
+                <span class="colon">:</span>
+                <span class="time">{{ props.minutes }}</span>
+                <span class="colon">:</span>
+                <span class="time">{{ props.seconds }}</span>
+              </div>
+              <div class="nextTitle">下一场 22:00  开始</div>
+            </div>
+            <div class="itemRight">
+              <img src="../../assets/images/test2.png" alt="">
+              <div class="price">
+                <span class="now">¥42</span>
+                <span class="old">¥49</span>
+              </div>
+            </div>
+          </a>
         </div>
-        <div class="itemRight">
-          <img src="../../assets/images/test2.png" alt="">
-          <div class="price">
-            <span class="now">¥42</span>
-            <span class="old">¥49</span>
-          </div>
-        </div>
-      </a>
-    </div>
+      </template>
+    </countdown>
     <div class="weal">
       <a href="javascript:;">
         <img src="../../assets/images/move.jpg" alt="">
@@ -133,20 +137,59 @@
       GoodsShow,
       GoTop
     },
+    data () {
+      return {
+        time: [2, 60, 60]
+      }
+    },
     created () {
       this.resetTop()
     },
     mounted () {
-      this.$store.dispatch('getHomeData')
+      this.$store.dispatch('getHomeData', () => {
+        this.$nextTick(() => {
+          this._resetTime()
+        })
+      })
       this.$store.dispatch('getTopicData')
+      this.$refs.countdown.start()
     },
     methods: {
       resetTop () {
         window.scrollTo(0, 0)
+      },
+      _resetTime () {
+        this.timer = setTimeout (() => {
+          clearTimeout(this.timer)
+          this.time = [2, 60, 60]
+        }, 2 * 60 * 60 * 1000) 
       }
     },
     computed: {
-      ...mapState(['homeData'])
+      ...mapState(['homeData']),
+      resetTime: {
+        get: function () {
+          let arr = []
+          let result = 1
+          for (const i in this.time) {
+            if (this.time[i] !== 0) {
+              arr.push(this.time[i])
+            }
+          }
+          arr.forEach(item => {
+            result *= item
+          })
+          return result
+        },
+        set: function () {
+            let result = 1
+            this.time.forEach(item => {
+              result *= item
+            })
+            console.log(result)
+            return result
+        }
+      }
     }
   }
 </script>
