@@ -1,76 +1,13 @@
 <template>
   <div class="topicList">
     <swiper :options="swiperOption" ref="mySwiper">
-      <swiper-slide>
+      <swiper-slide v-for="(item, index) in data" :key="index">
         <a href="javascript:;">
-          <img src="../../../assets/images/test4.png" alt="">
+          <img v-lazy="item.picUrl" alt="">
           <div class="tNum">
-            <span class="tNumCon">317篇文章</span>
+            <span class="tNumCon">{{item.articleCount}}</span>
           </div>
-          <div class="title">严选推荐</div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <img src="../../../assets/images/test4.png" alt="">
-          <div class="tNum">
-            <span class="tNumCon">317篇文章</span>
-          </div>
-          <div class="title">严选推荐</div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <img src="../../../assets/images/test4.png" alt="">
-          <div class="tNum">
-            <span class="tNumCon">317篇文章</span>
-          </div>
-          <div class="title">严选推荐</div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <img src="../../../assets/images/test4.png" alt="">
-          <div class="tNum">
-            <span class="tNumCon">317篇文章</span>
-          </div>
-          <div class="title">严选推荐</div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <img src="../../../assets/images/test4.png" alt="">
-          <div class="tNum">
-            <span class="tNumCon">317篇文章</span>
-          </div>
-          <div class="title">严选推荐</div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <img src="../../../assets/images/test4.png" alt="">
-          <div class="tNum">
-            <span class="tNumCon">317篇文章</span>
-          </div>
-          <div class="title">严选推荐</div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <img src="../../../assets/images/test4.png" alt="">
-          <div class="tNum">
-            <span class="tNumCon">317篇文章</span>
-          </div>
-          <div class="title">严选推荐</div>
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <img src="../../../assets/images/test4.png" alt="">
-          <div class="tNum">
-            <span class="tNumCon">317篇文章</span>
-          </div>
-          <div class="title">严选推荐</div>
+          <div class="title">{{item.title}}</div>
         </a>
       </swiper-slide>
     </swiper>
@@ -91,6 +28,9 @@
       swpier () {
         return this.$refs.mySwiper.swpier
       }
+    },
+    props: {
+      data: Array
     }
   }
 </script>

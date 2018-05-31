@@ -40,7 +40,7 @@
                 <h4 class="title">{{item.name}}</h4>
                 <span class="proce1">{{item.floorPrice}}</span><span class="proce2">元起</span>
               </div>
-              <img :src="item.picUrl" alt="img">
+              <img v-lazy="item.picUrl" alt="img">
             </a>
           </li>
         </ul>
@@ -132,6 +132,7 @@
     },
     mounted () {
       this.$store.dispatch('getHomeData')
+      this.$store.dispatch('getTopicData')
     },
     computed: {
       ...mapState(['homeData'])
@@ -290,11 +291,11 @@
           background #F4E9CB
       .moveCont
         position absolute
-        width px2rem(240)
+        width px2rem(334)
         height px2rem(126)
         top 50%
         left 50%
-        margin-left px2rem(-120)
+        margin-left px2rem(-167)
         margin-top px2rem(-63)
         text-align center
         font-size px2rem(36)

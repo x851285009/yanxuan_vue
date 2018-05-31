@@ -1,34 +1,14 @@
 <template>
   <div class="wapper">
     <swiper ref="mySwiper" :options="swiperOption">
-      <swiper-slide>
+      <swiper-slide v-for="(item, index) in data" :key="index">
         <a href="javascript:;">
           <div class="content">
-            <div class="subTitle">严选推荐</div>
-            <div class="title">夏日小仙女养成记</div>
-            <div class="desc">页面内商品每满179立减20</div>
+            <div class="subTitle">{{item.subTitle}}</div>
+            <div class="title">{{item.title}}</div>
+            <div class="desc">{{item.desc}}</div>
           </div>
-          <img src="../../../assets/images/topban.jpg" alt=""> 
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <div class="content">
-            <div class="subTitle">严选推荐</div>
-            <div class="title">夏日小仙女养成记</div>
-            <div class="desc">页面内商品每满179立减20</div>
-          </div>
-          <img src="../../../assets/images/topban.jpg" alt="">
-        </a>
-      </swiper-slide>
-      <swiper-slide>
-        <a href="javascript:;">
-          <div class="content">
-            <div class="subTitle">严选推荐</div>
-            <div class="title">夏日小仙女养成记</div>
-            <div class="desc">页面内商品每满179立减20</div>
-          </div>
-          <img src="../../../assets/images/topban.jpg" alt="">
+          <img v-lazy="item.picUrl" alt=""> 
         </a>
       </swiper-slide>
     </swiper>
@@ -55,6 +35,9 @@
       swpier () {
         return this.$refs.mySwiper.swpier
       }
+    },
+    props: {
+      data: Array
     }
   }
 </script>

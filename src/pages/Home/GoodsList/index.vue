@@ -4,7 +4,7 @@
       <swiper-slide v-for="item in data" :key="item.id">
         <a href="javascript:;">
           <div class="image">
-            <img :src="item.primaryPicUrl" alt="">
+            <img v-lazy="item.primaryPicUrl" alt="">
           </div>
           <div class="name">{{item.name}}</div>
           <div class="nameDoc">{{item.simpleDesc}}</div>

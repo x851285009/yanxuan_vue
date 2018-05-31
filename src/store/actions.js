@@ -1,5 +1,6 @@
 import { 
   RECEIVE_HOMEDATA,
+  RECEIVE_TOPICDATA,
   RECEIVE_NAVDATA,
   RECEIVE_NAVLIST,
   REACT_NAVINDEX,
@@ -8,6 +9,7 @@ import {
 
 import {
   reqHomeData,
+  reqTopciData,
   reqNavData
 } from '../api'
 
@@ -17,6 +19,13 @@ export default {
     if (result.code === 0) {
       const homeData = result.data
       commit(RECEIVE_HOMEDATA, {homeData})
+    }
+  },
+  async getTopicData ({commit}) {
+    const result = await reqTopciData()
+    if (result.code === 0) {
+      const topicData = result.data
+      commit(RECEIVE_TOPICDATA, {topicData})
     }
   },
   async getNavData ({commit}) {

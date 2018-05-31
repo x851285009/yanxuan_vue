@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition>
+      <router-view/>
+    </transition>
     <Footer v-show="$route.meta.showFooter"></Footer>
   </div>
 </template>
@@ -25,4 +27,16 @@
   #app 
     width 100%
     height 100%
+  .v-enter
+    opacity 0
+  .v-enter-to
+    opacity 1
+  .v-enter-active
+    transition 1s
+  .v-leave
+    opacity 1
+  .v-leave-to
+    opacity 0
+  .v-leave-active
+    transition0.7s
 </style>

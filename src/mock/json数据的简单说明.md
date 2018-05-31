@@ -29,7 +29,7 @@
 
 ## banner (banner)
 
-## banner下 tab
+## banner下 tab column
 
 ## 为你推荐 (recommendOne)
 
@@ -38,6 +38,8 @@
 ## 十点一刻 (tenfifteen)
 
 ## 严选臻品(zhenThree,two,one)
+
+## 严选LOOK (yxlook)
 
 ## 更多 (yxWeek)
 

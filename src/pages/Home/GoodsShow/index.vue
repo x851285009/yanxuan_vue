@@ -5,7 +5,7 @@
       <ul class="list" >
         <li class="item" v-for="(item, index) in items.itemList" v-if="index<=6" :key="item.id">
           <a href="javascript:;">
-            <img :src="item.listPicUrl" alt="">
+            <img v-lazy="item.listPicUrl" alt="">
             <div class="desc">{{item.simpleDesc}}</div>
             <div class="name">{{item.name}}</div>
             <div class="price">￥{{item.retailPrice}}</div>

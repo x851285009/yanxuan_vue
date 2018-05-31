@@ -73,7 +73,8 @@
         padding-bottom px2rem(138)
         >.item
           width 100%
-          height px2rem(56)
+          height px2rem(76)
+          line-height px2rem(76)
           text-align center
           border none
           &.active
@@ -88,11 +89,11 @@
               background-color $main
             >a
               font-size px2rem(36)
-              line-height px2rem(56)
+              line-height px2rem(76)
               font-weight 700
               color $main
           +.item
-            margin-top px2rem(40)
+            margin-top px2rem(20)
           >a
             display block
             color #333333

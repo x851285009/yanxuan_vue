@@ -4,6 +4,6 @@
 请求函数统一用req开头
  */
 import ajax from './ajax'
-
-export const reqNavData = () => ajax('/navdata')
 export const reqHomeData = () => ajax('/homedata')
+export const reqTopciData = () => ajax('/topicdata')
+export const reqNavData = () => ajax('/navdata')

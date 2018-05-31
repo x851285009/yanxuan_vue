@@ -9,7 +9,7 @@
     <div class="subjects">
       <swiper :options="swiperOption" ref="mySwiper">
         <swiper-slide v-for="item in data" :key="item.id">
-          <img :src="item.itemPicUrl" alt="">
+          <img v-lazy="item.itemPicUrl" alt="">
           <div class="line">
             <h4 class="title">{{item.title}}</h4>
             <span class="price">{{item.priceInfo}}元起</span>

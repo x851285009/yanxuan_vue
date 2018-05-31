@@ -3,7 +3,7 @@
     <swiper ref="mySwiper" class="mySwiper" :options="swiperOption">
       <swiper-slide v-for="item in homeData.focusList" :key="item.id">
         <a href="javascript:;">
-          <img :src="item.picUrl" alt="">
+          <img v-lazy="item.picUrl" alt="">
         </a>
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>

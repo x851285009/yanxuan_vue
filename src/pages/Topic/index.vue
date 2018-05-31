@@ -1,52 +1,39 @@
 <template>
   <div class="topic">
     <Header></Header>
-    <Banner></Banner>
-    <TopicList></TopicList>
-    <Recommend></Recommend>
-    <TopicShow></TopicShow>
-    <Recommend></Recommend>
+    <Banner :data="topicData.banner"></Banner>
+    <TopicList :data="topicData.column"></TopicList>
+    <Recommend :data="topicData.recommend"></Recommend>
+    <TopicShow :data="topicData.tenfifteen"></TopicShow>
+    <Recommend :data="topicData.zhen"></Recommend>
     <section class="look">
       <Title title="严选LOOK"></Title>
       <a href="javascript:;">
-        <img src="../../assets/images/test6.jpg" alt="">
+        <img v-lazy="topicData.yxLook.picUrl" alt="">
         <div class="authorContainer">
           <div class="author">
             <div class="authorPic">
-              <img src="../../assets/images/test5.png" alt="">
+              <img v-lazy="topicData.yxLook.avatar" alt="">
             </div>
-            <div class="authorName">丁磊</div>
+            <div class="authorName">{{topicData.yxLook.nickname}}</div>
           </div>
         </div>
+        <div class="desc">{{topicData.yxLook.content}}</div>
       </a>
     </section>
-    <section class="moveTopic">
-      <div class="moveTit">
-        <span class="inner">更多精彩</span>
-      </div>
-      <a href="javascript:;" class="item">
-        <img src="../../assets/images/mock1.jpg" alt="">
-        <div class="desc">制定一份自己的晨间清单，唤醒一整天的活力</div>
-      </a>
-      <a href="javascript:;" class="item">
-        <img src="../../assets/images/mock2.jpg" alt="">
-        <div class="desc">白色情人节送礼好物</div>
-      </a>
-      <a href="javascript:;" class="item">
-        <img src="../../assets/images/mock3.jpg" alt="">
-        <div class="desc">白果炖鸡汤好喝的秘诀</div>
-      </a>
-    </section>
+    <MoveTopic :data="topicData.yxWeek"></MoveTopic>
   </div>
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   import Banner from './Banner'
   import TopicList from './TopicList'
   import Recommend from './Recommend'
   import TopicShow from './TopicShow'
   import Title from '../../components/Title'
   import Header from '../../components/Header'
+  import MoveTopic from './MoveTopic'
   export default {
     components: {
       Banner,
@@ -54,7 +41,14 @@
       Recommend,
       TopicShow,
       Title,
-      Header
+      Header,
+      MoveTopic
+    },
+    mounted () {
+      this.$store.dispatch('getTopicData')
+    },
+    computed: {
+      ...mapState(['topicData'])
     }
   }
 </script>
@@ -71,7 +65,6 @@
         height auto
       .authorContainer
           padding px2rem(20) 0 px2rem(20) px2rem(20)
-          margin-bottom px2rem(25)
           .author
             display flex
             align-items center
@@ -89,40 +82,9 @@
               letter-spacing px2rem(4)
               margin-left px2rem(20)
               ellipsis()
-    .moveTopic
-      margin 0 px2rem(30) px2rem(30)
-      .moveTit
-        height px2rem(140)
-        display flex
-        align-items center
-        &:before
-          content ''
-          display block
-          width px2rem(264)
-          height 1px
-          background #d9d9d9
-        &:after
-          content ''
-          display block
-          width px2rem(264)
-          height 1px
-          background #d9d9d9
-        .inner
-          margin 0 px2rem(24)
-          font-size px2rem(28)
-          color #333333
-      >.item
-        display block
-        padding px2rem(24)
-        background #ffffff
-        color #333333
-        margin-bottom px2rem(30)
-        >img 
-          width px2rem(642)
-          height px2rem(360)
-        >.desc
-          font-size px2rem(28)
-          padding px2rem(28) 0
-          line-height 1.2
-          ellipsis()
+      .desc
+        font-size px2rem(28)
+        color #7f7f7f
+        line-height 1.6
+        padding px2rem(10) px2rem(30) px2rem(20)
 </style>

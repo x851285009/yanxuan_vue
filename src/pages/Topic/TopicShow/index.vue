@@ -3,34 +3,14 @@
     <Title title="十点一刻"></Title>
     <div class="ShowSwiper">
       <swiper ref="mySwiper" :options="swiperOptions">
-        <swiper-slide>
+        <swiper-slide v-for="item in data" :key="item.id">
           <a href="javascript:;">
             <div class="lineTitle">
               <span class="inner">今日话题</span>
             </div>
-            <div class="tsTitle">世界杯来了</div>
-            <div class="desc">你支持哪个球队</div>
-            <div class="joinInfo">4人参与话题</div>
-          </a>
-        </swiper-slide>
-        <swiper-slide>
-          <a href="javascript:;">
-            <div class="lineTitle">
-              <span class="inner">今日话题</span>
-            </div>
-            <div class="tsTitle">世界杯来了</div>
-            <div class="desc">你支持哪个球队</div>
-            <div class="joinInfo">4人参与话题</div>
-          </a>
-        </swiper-slide>
-        <swiper-slide>
-          <a href="javascript:;">
-            <div class="lineTitle">
-              <span class="inner">今日话题</span>
-            </div>
-            <div class="tsTitle">世界杯来了</div>
-            <div class="desc">你支持哪个球队</div>
-            <div class="joinInfo">4人参与话题</div>
+            <div class="tsTitle">{{item.title}}</div>
+            <div class="desc">{{item.desc}}</div>
+            <div class="joinInfo">{{item.participantNum}}人参与话题</div>
           </a>
         </swiper-slide>
         <swiper-slide>
@@ -64,6 +44,9 @@
     },
     components: {
       Title
+    },
+    props: {
+      data: Array
     }
   }
 </script>

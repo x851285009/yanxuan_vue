@@ -28,6 +28,7 @@
       display flex
       align-items center
       padding 0 px2rem(30)
+      width 100%
       height px2rem(88)
       position relative
       background-color #ffffff

@@ -115,4 +115,6 @@
         font-size px2rem(26)
         >i 
           font-size px2rem(26)
+        &:last-child
+          border-right none
 </style>

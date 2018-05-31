@@ -1,47 +1,47 @@
 <template>
 <div class="recommend">
-  <Title title="为你推荐"></Title>
+  <Title :title="data.name"></Title>
   <div class="itemMajor">
     <a href="javascript:;">
-      <img src="../../../assets/images/move.jpg" alt="">
+      <img v-lazy="data.Item[0].picUrl" alt="">
       <div class="info">
         <div class="line1">
-          <div class="Linetitle">如何做清新的白衣少年</div>
-          <div class="price">9.9元起</div>
+          <div class="Linetitle">{{data.Item[0].title}}</div>
+          <div class="price">{{data.Item[0].priceInfo}}元起</div>
         </div>
-        <div class="line2">少年感养成必备好物，每满149立减20元</div>
+        <div class="line2">{{data.Item[0].subTitle}}</div>
       </div>
     </a>
   </div>
   <div class="items">
     <div class="topicInfo">
       <div class="line1">
-        <div class="topicTitle">今年世界杯喝什么？</div>
+        <div class="topicTitle">{{data.Item[1].title}}</div>
       </div>
       <div class="line2">
-        <div class="cont">拉格啤酒8.5折特价，买即赠小龙虾优惠券</div>
+        <div class="cont">{{data.Item[1].subTitle}}</div>
       </div>
     </div>
     <div class="topicPic">
-      <img src="../../../assets/images/test6.jpg" alt="">
+      <img v-lazy="data.Item[1].picUrl" alt="">
       <div class="topicTag">
-        <div class="tag">丁磊的好货推荐</div>
+        <div class="tag">{{data.Item[1].typeName}}</div>
       </div>
     </div>
   </div>
   <div class="items">
     <div class="topicInfo">
       <div class="line1">
-        <div class="topicTitle">今年世界杯喝什么？</div>
+        <div class="topicTitle">{{data.Item[2].title}}</div>
       </div>
       <div class="line2">
-        <div class="cont">拉格啤酒8.5折特价，买即赠小龙虾优惠券</div>
+        <div class="cont">{{data.Item[2].subTitle}}</div>
       </div>
     </div>
     <div class="topicPic">
-      <img src="../../../assets/images/test6.jpg" alt="">
+      <img v-lazy="data.Item[2].picUrl" alt="">
       <div class="topicTag">
-        <div class="tag">丁磊的好货推荐</div>
+        <div class="tag">{{data.Item[2].typeName}}</div>
       </div>
     </div>
   </div>
@@ -53,6 +53,9 @@
   export default {
     components: {
       Title
+    },
+    props: {
+      data: Object
     }
   }
 </script>
