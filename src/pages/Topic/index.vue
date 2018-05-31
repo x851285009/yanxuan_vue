@@ -1,5 +1,6 @@
 <template>
   <div class="topic">
+    <GoTop></GoTop>
     <Header></Header>
     <Banner :data="topicData.banner"></Banner>
     <TopicList :data="topicData.column"></TopicList>
@@ -34,6 +35,7 @@
   import Title from '../../components/Title'
   import Header from '../../components/Header'
   import MoveTopic from './MoveTopic'
+  import GoTop from '../../components/GoTop'
   export default {
     components: {
       Banner,
@@ -42,7 +44,8 @@
       TopicShow,
       Title,
       Header,
-      MoveTopic
+      MoveTopic,
+      GoTop
     },
     mounted () {
       this.$store.dispatch('getTopicData')
