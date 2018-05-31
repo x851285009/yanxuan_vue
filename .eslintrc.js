@@ -32,6 +32,7 @@ module.exports = {
     'indent': 0,
     'no-useless-return': 0,
     'no-new': 0,
-    'no-mixed-spaces-and-tabs': 0
+    'no-mixed-spaces-and-tabs': 0,
+    'no-unused-vars': 0
   }
 }

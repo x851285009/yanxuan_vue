@@ -32,6 +32,14 @@
   export default {
     components: {
       Title
+    },
+    created () {
+      this.resetTop()
+    },
+    methods: {
+      resetTop () {
+        window.scrollTo(0, 0)
+      }
     }
   }
 </script>

@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <GoTop></GoTop>
     <section class="head">
       <header>
         <div class="logo"></div>
@@ -122,17 +123,27 @@
   import GoodsList from './GoodsList'
   import Subjects from './Subjects'
   import GoodsShow from './GoodsShow'
+  import GoTop from '../../components/GoTop'
   export default {
     components: {
       ListScroll,
       Banner,
       GoodsList,
       Subjects,
-      GoodsShow
+      GoodsShow,
+      GoTop
+    },
+    created () {
+      this.resetTop()
     },
     mounted () {
       this.$store.dispatch('getHomeData')
       this.$store.dispatch('getTopicData')
+    },
+    methods: {
+      resetTop () {
+        window.scrollTo(0, 0)
+      }
     },
     computed: {
       ...mapState(['homeData'])

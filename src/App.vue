@@ -15,6 +15,14 @@
     },
     mounted () {
       this.$store.dispatch('getNavData')
+    },
+    created () {
+      this.resetTop()
+    },
+    methods: {
+      resetTop () {
+        window.scrollTo(0, 0)
+      }
     }
   }
 </script>
